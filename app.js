@@ -1,6 +1,6 @@
 var express     = require("express"),
     app         = express(),
-	port        = 3000,
+	// port        = 3000,
     bodyParser  = require("body-parser"),
     mongoose    = require("mongoose"),
     flash       = require("connect-flash"),
@@ -54,4 +54,7 @@ app.use("/campgrounds", campgroundRoutes);
 app.use("/campgrounds/:id/comments", commentRoutes);
 
 
-app.listen(port, () => console.log(`Example app listening at http://localhost:${port}`));
+var port = process.env.PORT || 3000;
+app.listen(port, function () {
+  console.log("Server Has Started!");
+});
